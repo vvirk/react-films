@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 
 class FilmsList extends React.Component {
   constructor(props) {
@@ -37,3 +37,4 @@ class FilmsList extends React.Component {
 }
 
 export default FilmsList;
+*/
