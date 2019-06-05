@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getMoves, data, changeSort, changeYear } from './redux';
+import Select from 'react-select';
 
 export class App extends Component {
   state = {};
@@ -16,41 +15,31 @@ export class App extends Component {
   }
 
   render() {
-    const sortBy = ['release_date', 'popularity', 'revenue', 'vote_average', 'vote_count'];
+    const options = [
+      { value: 'release_date', label: 'release date' },
+      { value: 'popularity', label: 'popularity' },
+      { value: 'revenue', label: 'revenue' },
+      { value: 'vote_average', label: 'vote average' },
+    ];
     const years = [];
-    for (let i = 2009; i < 2019; i++) {
-      years.push(i);
-    };
+    const currentYear = new Date().getFullYear();
+    for (let i = 2009; i <= currentYear; i++) {
+      years.push({ value: i, label: i });
+    }
     console.log(years);
     return (
       <div>
         <div>
-          <ul>
-            {sortBy.map((item, index) => (
-            <li key={index}>
-              <button
-                type="button"
-                onClick={() => this.props.changeSort(item)}
-              >
-                {item}
-              </button>
-            </li>
-            ))}
-          </ul>
+          <Select
+            onChange={(value) => {this.props.changeSort(value.value)}}
+            options={options}
+          />
         </div>
         <div>
-          <ul>
-            {years.map((year, index) => (
-            <li key={index}>
-              <button
-                type="button"
-                onClick={() => this.props.changeYear(year)}
-              >
-                {year}
-              </button>
-            </li>
-            ))}
-          </ul>
+          <Select
+            onChange={(year) => {this.props.changeYear(year.value)}}
+            options={years}
+          />
         </div>
         <ul>
           {this.props.items.map((item, index) => (
@@ -65,8 +54,5 @@ export class App extends Component {
     );
   }
 }
-const mapStateToProps = state => ({ items: state.items, sort: state.sort, year: state.year });
-const mapDispatchToProps = { getMoves, data, changeSort, changeYear };
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
 
-export default AppContainer;
+export default App;

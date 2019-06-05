@@ -34,9 +34,10 @@ export const data = (state = initialState, action) => {
       return state;
   }
 };
+export const apiUrl = 'https://api.themoviedb.org/3/';
 export const getMoves = (sort, year) => async (dispatch) => {
   try {
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=60c4a3ee893cd1db3cfe5838953ce4c1&language=en-US&sort_by=${sort}.desc&include_adult=false&include_video=false&page=1&year=${year}`;
+    const url = `${apiUrl}discover/movie?api_key=60c4a3ee893cd1db3cfe5838953ce4c1&language=en-US&sort_by=${sort}.desc&include_adult=false&include_video=false&page=1&year=${year}`;
     const response = await fetch(url);
     const responseBody = await response.json();
     dispatch(addResult(responseBody));
