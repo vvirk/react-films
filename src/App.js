@@ -5,7 +5,7 @@ export class App extends Component {
   state = {};
 
   componentDidMount() {
-    this.props.getMoves(this.props.sort);
+    this.props.getMoves(this.props.sort, this.props.year, this.props.page);
   }
 
   componentDidUpdate(prevProps) {
