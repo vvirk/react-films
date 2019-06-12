@@ -9,8 +9,8 @@ export class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.sort !== prevProps.sort || this.props.year !== prevProps.year) {
-      this.props.getMoves(this.props.sort, this.props.year);
+    if (this.props.sort !== prevProps.sort || this.props.year !== prevProps.year || this.props.page !== prevProps.page) {
+      this.props.getMoves(this.props.sort, this.props.year, this.props.page);
     }
   }
 
@@ -26,18 +26,21 @@ export class App extends Component {
     for (let i = 2009; i <= currentYear; i++) {
       years.push({ value: i, label: i });
     }
-    console.log(years);
+    const pages = [];
+    for (let i = 1; i <= 10; i++) {
+      pages.push(i);
+    }
     return (
       <div>
         <div>
           <Select
-            onChange={(value) => {this.props.changeSort(value.value)}}
+            onChange={(value) => { this.props.changeSort(value.value); }}
             options={options}
           />
         </div>
         <div>
           <Select
-            onChange={(year) => {this.props.changeYear(year.value)}}
+            onChange={(year) => { this.props.changeYear(year.value); }}
             options={years}
           />
         </div>
@@ -50,6 +53,20 @@ export class App extends Component {
             </li>
           ))}
         </ul>
+        <div>
+          <ul>
+            {pages.map((page, index) => (
+              <li key={index}>
+                <button
+                  type="button"
+                  onClick={() => this.props.changePage(page)}
+                >
+                  {page}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
