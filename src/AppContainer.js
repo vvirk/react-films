@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
   sort: state.sort,
   year: state.year,
   page: state.page,
+  total_pages: state.total_pages,
 });
 const mapDispatchToProps = {
   getMoves,

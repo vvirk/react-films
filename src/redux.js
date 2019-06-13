@@ -28,11 +28,12 @@ export const initialState = {
   sort: 'popularity',
   year: '2019',
   page: '1',
+  total_pages: '',
 };
 export const data = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_RESULT':
-      return { ...state, items: action.result.results };
+      return { ...state, items: action.result.results, total_pages: action.result.total_pages };
     case 'CHANGE_SORT':
       return { ...state, sort: action.valueSort };
     case 'CHANGE_YEAR':
