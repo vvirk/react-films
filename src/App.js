@@ -26,11 +26,7 @@ export class App extends Component {
     for (let i = 2009; i <= currentYear; i++) {
       years.push({ value: i, label: i });
     }
-    const allPages = [];
     const totalPages = this.props.total_pages;
-    for (let i = 0; i <= totalPages; i++) {
-      allPages.push(i);
-    }
     const pages = [];
     const currentPage = this.props.page;
     if (currentPage < 6) {
@@ -61,42 +57,69 @@ export class App extends Component {
       }
     }
     return (
-      <div>
-        <div>
-          <Select
-            onChange={(value) => { this.props.changeSort(value.value); }}
-            options={options}
-          />
-        </div>
-        <div>
-          <Select
-            onChange={(year) => { this.props.changeYear(year.value); }}
-            options={years}
-          />
-        </div>
-        <ul>
-          {this.props.items.map((item, index) => (
-            <li key={index}>
-              {item.title}
-              <br />
-              <img src={`https://image.tmdb.org/t/p/w300${item.backdrop_path}`} alt="img" />
-            </li>
-          ))}
-        </ul>
-        <div>
-          <ul className="pagination">
-            {pages.map((page, index) => (
-              <li key={index}>
-                <button
-                  type="button"
-                  onClick={() => { if (page !== '...') { this.props.changePage(page); } }}
-                >
-                  {page}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="wrapper">
+        <main className="main">
+          <header className="header">
+            <div className="content">
+              <div className="header-inner">
+                <a href="#" className="header-logo">
+                  LOGO
+                </a>
+              </div>
+            </div>
+          </header>
+          <section className="films">
+            <div className="content">
+              <div className="films-inner">
+                <nav className="films-navigation">
+                  <div className="films-sort">
+                    <h3 className="sort-title">Sort by</h3>
+                    <Select
+                      className="films-sort-select"
+                      onChange={(value) => { this.props.changeSort(value.value); }}
+                      options={options}
+                    />
+                  </div>
+                  <div className="films-sort">
+                    <h3 className="sort-title">Year</h3>
+                    <Select
+                      onChange={(year) => { this.props.changeYear(year.value); }}
+                      options={years}
+                    />
+                  </div>
+                </nav>
+                <ul className="films-list">
+                  {this.props.items.map((item, index) => (
+                    <li className="films-list-item" key={index}>
+                      <p>{item.title}</p>
+                      <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt="img" />
+                    </li>
+                  ))}
+                </ul>
+                <ul className="pagination">
+                  {pages.map((page, index) => (
+                    <li className="pagination-item" key={index}>
+                      <button
+                        className="pagination-number"
+                        type="button"
+                        onClick={() => { if (page !== '...') { this.props.changePage(page); } }}
+                      >
+                        {page}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer className="footer">
+          <div className="content">
+            <div className="footer-inner">
+              footer
+            </div>
+          </div>
+        </footer>
       </div>
     );
   }

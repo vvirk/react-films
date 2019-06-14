@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from './AppContainer';
+import 'reset-css';
+import 'normalize.css';
 import './index.css';
 import { store } from './redux';
 
