@@ -42,6 +42,8 @@ button {
     margin: 0 auto;
 }
 
+/* HEADER */
+
 .header {
     width: 100%;
 }
@@ -62,6 +64,9 @@ button {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* section 'FILMS' */
+
 .films-navigation {
     color: #000;
 }
@@ -103,6 +108,8 @@ button {
     min-height: 450px;
 }
 
+/* pagination */
+
 .pagination {
     padding: 35px 0;
     display: flex;
@@ -121,12 +128,7 @@ button {
 .pagination-number:hover,
 .pagination-number-active {
     font-weight: 900;
-    background: #c21500;
-    background: -webkit-linear-gradient(to right, #ffc500, #c21500);
-    background: linear-gradient(to right, #ffc500, #c21500);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #c21500;
     transform: scale(1.7);
     transition: .7s;
 }
