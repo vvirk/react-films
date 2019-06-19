@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import poster from './images/movie-poster.jpg';
 
 export class App extends Component {
   state = {};
@@ -28,7 +29,7 @@ export class App extends Component {
     ];
     const years = [];
     const currentYear = new Date().getFullYear();
-    for (let i = 2009; i <= currentYear; i++) {
+    for (let i = 2009; i <= currentYear; i += 1) {
       years.push({ value: i, label: i });
     }
     const totalPages = this.props.totalPages;
@@ -38,29 +39,29 @@ export class App extends Component {
     const next = currentPage + 1;
     const prew = currentPage - 1;
     if (currentPage < 6) {
-      for (let i = 1; i <= 7; i++) {
+      for (let i = 1; i <= 7; i += 1) {
         pages.push(i);
       }
       pages.push(separator, totalPages - 1, totalPages);
     } else if (currentPage <= 7) {
-      for (let i = 1; i <= 10; i++) {
+      for (let i = 1; i <= 10; i += 1) {
         pages.push(i);
       }
       pages.push(separator, totalPages - 1, totalPages);
     } else if (currentPage >= 8 && currentPage <= totalPages - 7) {
       pages.push(1, 2, '...');
-      for (let i = currentPage - 3; i <= currentPage + 3; i++) {
+      for (let i = currentPage - 3; i <= currentPage + 3; i += 1) {
         pages.push(i);
       }
       pages.push(separator, totalPages - 1, totalPages);
     } else if (currentPage === totalPages - 6) {
       pages.push(1, 2, separator);
-      for (let i = totalPages - 10; i <= totalPages; i++) {
+      for (let i = totalPages - 10; i <= totalPages; i += 1) {
         pages.push(i);
       }
     } else if (currentPage > totalPages - 6) {
       pages.push(1, 2, separator);
-      for (let i = totalPages - 6; i <= totalPages; i++) {
+      for (let i = totalPages - 6; i <= totalPages; i += 1) {
         pages.push(i);
       }
     }
@@ -70,7 +71,7 @@ export class App extends Component {
           <header className="header">
             <div className="content">
               <div className="header-inner">
-                <a href="/" className="header-logo">
+                <a href="/react-first/" className="header-logo">
                   LOGO
                 </a>
               </div>
@@ -100,7 +101,7 @@ export class App extends Component {
                   {this.props.items.map((item, index) => (
                     <li className="films-list-item" key={index}>
                       <p>{item.title}</p>
-                      <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt="img" />
+                      <img src={(item.poster_path === null) ? poster : `https://image.tmdb.org/t/p/w300${item.poster_path}`} alt="poster" />
                     </li>
                   ))}
                 </ul>
@@ -123,7 +124,7 @@ export class App extends Component {
                       return (
                         <li className="pagination-item" key={index}>
                           <button
-                            className={(this.props.page === page) ? "pagination-number pagination-number-active" : "pagination-number" }
+                            className={(this.props.page === page) ? 'pagination-number pagination-number-active' : 'pagination-number'}
                             type="button"
                             onClick={() => { this.props.changePage(page); }}
                           >
@@ -158,9 +159,7 @@ export class App extends Component {
         </main>
         <footer className="footer">
           <div className="content">
-            <div className="footer-inner">
-              footer
-            </div>
+            <div className="footer-inner" />
           </div>
         </footer>
       </div>
