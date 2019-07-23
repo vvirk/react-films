@@ -6,7 +6,7 @@ import { DetailsContainer } from './containers/DetailsContainer';
 export const MainRouter = () => (
   <Router>
     <Route path="/react-first/" exact component={FilmsContainer} />
-    <Route path="/react-first/details/:id" exact component={DetailsContainer} />
+    <Route path="/react-first/details/:id" component={DetailsContainer} />
   </Router>
 );
 
