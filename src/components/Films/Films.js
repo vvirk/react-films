@@ -90,7 +90,7 @@ export class Films extends Component {
               {this.props.items.map((item, index) => (
                 <li className="films-list-item" key={index}>
                   <Link
-                    to={`/details/${item.id}`}
+                    to={`/react-first/details/${item.id}`}
                     onClick={() => this.props.getId(item.id) && console.log(item.id)}
                     className="films-list-item-link"
                   >
