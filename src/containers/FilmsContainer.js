@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import {
   getMoves,
-  data,
   changeSort,
   changeYear,
   changePage,
-} from './redux';
-import { App } from './App';
+  getId,
+} from '../actions/index';
+import { Films } from '../components/Films/Films';
 
 const mapStateToProps = state => ({
   items: state.items,
@@ -17,15 +17,15 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = {
   getMoves,
-  data,
   changeSort,
   changeYear,
   changePage,
+  getId,
 };
 
-export const AppContainer = connect(
+export const FilmsContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(Films);
 
-export default AppContainer;
+export default FilmsContainer;
