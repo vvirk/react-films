@@ -8,7 +8,6 @@ export class Details extends Component {
 
   render() {
     const { details } = this.props;
-    console.log(details);
     return (
       <section className="details">
         <div className="content">
