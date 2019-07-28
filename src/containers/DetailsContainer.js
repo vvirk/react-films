@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getDetails } from '../actions/index';
 import { Details } from '../components/Details/Details';
 
@@ -10,9 +11,9 @@ const mapDispatchToProps = {
   getDetails,
 };
 
-export const DetailsContainer = connect(
+export const DetailsContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Details);
+)(Details));
 
 export default DetailsContainer;

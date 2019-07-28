@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {
   getMoves,
   changePage,
@@ -15,9 +16,9 @@ const mapDispatchToProps = {
   changePage,
 };
 
-export const FilmsContainer = connect(
+export const FilmsContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Films);
+)(Films));
 
 export default FilmsContainer;

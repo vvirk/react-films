@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import queryString from 'query-string';
 import { FilmsNavContainer } from '../../containers/FilmsNavContainer';
 import { FilmsListContainer } from '../../containers/FilmsListContainer';
 import { FilmsPaginationContainer } from '../../containers/FilmsPaginationContainer';
@@ -16,6 +17,10 @@ export class Films extends Component {
     }
     if (this.props.page !== prevProps.page) {
       this.props.getMoves(this.props.sort, this.props.year, this.props.page);
+    }
+    if (this.props.location.search !== prevProps.location.search) {
+      const params = queryString.parse(this.props.location.search);
+      this.props.getMoves(params.sort_by, params.year, params.page);
     }
     window.scrollTo(0, 0);
   }

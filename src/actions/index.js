@@ -1,4 +1,5 @@
 import * as type from './actionTypes';
+import history from '../history';
 
 export const addResult = result => ({
   type: type.ADD_RESULT,
@@ -19,10 +20,12 @@ export const changePage = page => ({
 export const apiUrl = 'https://api.themoviedb.org/3/';
 export const getMoves = (sort, year, page) => async (dispatch) => {
   try {
-    const url = `${apiUrl}discover/movie?api_key=60c4a3ee893cd1db3cfe5838953ce4c1&language=en-US&sort_by=${sort}.desc&include_adult=false&include_video=false&page=${page}&year=${year}`;
+    const params = `?sort_by=${sort}&page=${page}&year=${year}`;
+    const url = `${apiUrl}discover/movie?api_key=60c4a3ee893cd1db3cfe5838953ce4c1&language=en-US&sort_by=${sort}.desc&page=${page}&year=${year}`;
     const response = await fetch(url);
     const responseBody = await response.json();
     dispatch(addResult(responseBody));
+    history.push(params);
   } catch {
     console.log('ERROR!');
   }

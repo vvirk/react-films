@@ -6,7 +6,9 @@
   "dependencies": {
     "eslint-config-airbnb": "^17.1.0",
     "gh-pages": "^2.0.1",
+    "history": "^4.9.0",
     "normalize.css": "^8.0.1",
+    "query-string": "^6.8.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
@@ -18,7 +20,7 @@
     "reset-css": "^4.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

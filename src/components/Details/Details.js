@@ -3,7 +3,7 @@ import poster from '../../images/movie-poster.jpg';
 
 export class Details extends Component {
   componentDidMount() {
-    this.props.getDetails(this.props.id);
+    this.props.getDetails(this.props.match.params.id);
   }
 
   render() {
