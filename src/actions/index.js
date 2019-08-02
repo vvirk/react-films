@@ -18,7 +18,7 @@ export const changePage = page => ({
   page,
 });
 export const apiUrl = 'https://api.themoviedb.org/3/';
-export const getMoves = (sort, year, page) => async (dispatch) => {
+export const getMoves = (sort = 'popularity', year = 2019, page = 1) => async (dispatch) => {
   try {
     const params = `?sort_by=${sort}&page=${page}&year=${year}`;
     const url = `${apiUrl}discover/movie?api_key=60c4a3ee893cd1db3cfe5838953ce4c1&language=en-US&sort_by=${sort}.desc&page=${page}&year=${year}`;

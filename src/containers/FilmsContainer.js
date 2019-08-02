@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import {
   getMoves,
   changePage,
+  changeYear,
+  changeSort,
 } from '../actions/index';
 import { Films } from '../components/Films/Films';
 
@@ -14,6 +16,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   getMoves,
   changePage,
+  changeYear,
+  changeSort,
 };
 
 export const FilmsContainer = withRouter(connect(
