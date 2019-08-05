@@ -1,6 +1,6 @@
 # React-first app
 
-[react-first](https://boxing199.github.io/react-first)
+[react-first](https://vvirk.github.io/react-first)
 
 The simple web app that use `The Movie Database (TMDb) API` to show a list with movies and information about them.
 
