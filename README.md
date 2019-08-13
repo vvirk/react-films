@@ -16,6 +16,3 @@ yarn
 ### Run application
 ```
 yarn start
-```
-After yarn start compiled successfully, you can view react-first in the browser, go to the 	
-[http://localhost:3000/react-first](http://localhost:3000/react-first) link.
