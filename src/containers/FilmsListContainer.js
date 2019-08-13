@@ -1,16 +1,14 @@
 import { connect } from 'react-redux';
-import { getId } from '../actions/index';
+import { withRouter } from 'react-router-dom';
 import { FilmsList } from '../components/FilmsList/FilmsList';
 
 const mapStateToProps = state => ({
   items: state.items,
 });
-const mapDispatchToProps = {
-  getId,
-};
-export const FilmsListContainer = connect(
+const mapDispatchToProps = {};
+export const FilmsListContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FilmsList);
+)(FilmsList));
 
 export default FilmsListContainer;

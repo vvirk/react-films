@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import queryString from 'query-string';
+import { addParam } from '../../utils/addParam';
 
 export class FilmsPagination extends Component {
   state
 
   render() {
+    const params = queryString.parse(this.props.location.search);
     const totalPages = this.props.totalPages;
     const pages = [];
-    const currentPage = this.props.page;
+    const currentPage = (params.page) ? +params.page : 1;
     const separator = '...';
     const next = currentPage + 1;
     const prew = currentPage - 1;
@@ -43,10 +46,10 @@ export class FilmsPagination extends Component {
           ? (
             <li className="pagination-item">
               <button
-                className="pagination-number"
                 type="button"
+                className="pagination-number"
                 title={prew}
-                onClick={() => { this.props.changePage(prew); }}
+                onClick={() => addParam(params, 'page', prew)}
               >
                 &#9668;
               </button>
@@ -57,9 +60,9 @@ export class FilmsPagination extends Component {
             return (
               <li className="pagination-item" key={index}>
                 <button
-                  className={(this.props.page === page) ? 'pagination-number pagination-number-active' : 'pagination-number'}
                   type="button"
-                  onClick={() => { this.props.changePage(page); }}
+                  className={(currentPage === page) ? 'pagination-number pagination-number-active' : 'pagination-number'}
+                  onClick={() => addParam(params, 'page', page)}
                 >
                   {page}
                 </button>
@@ -76,10 +79,10 @@ export class FilmsPagination extends Component {
           ? (
             <li className="pagination-item">
               <button
-                className="pagination-number"
                 type="button"
+                className="pagination-number"
                 title={next}
-                onClick={() => { this.props.changePage(next); }}
+                onClick={() => addParam(params, 'page', next)}
               >
                 &#9658;
               </button>

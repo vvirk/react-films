@@ -10,33 +10,14 @@ export class Films extends Component {
       const params = queryString.parse(this.props.location.search);
       this.props.getMoves(params.sort_by, params.year, params.page);
     } else {
-      this.props.getMoves(this.props.sort, this.props.year, this.props.page);
+      this.props.getMoves();
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.sort !== prevProps.sort
-      || this.props.year !== prevProps.year) {
-      this.props.getMoves(this.props.sort, this.props.year);
-    }
-    if (this.props.page !== prevProps.page) {
-      this.props.getMoves(this.props.sort, this.props.year, this.props.page);
-    }
-    if (this.props.location.search !== prevProps.location.search) {
+  componentDidUpdate(prewProps) {
+    if (this.props.location.search !== prewProps.location.search) {
       const params = queryString.parse(this.props.location.search);
-      console.log(this.props.location.search);
-      console.log(prevProps.location.search);
-      if (this.props.page !== +params.page && this.props.year !== +params.year) {
-        this.props.changePage(+params.page) && this.props.changeYear(+params.year);
-      } else if (this.props.page !== +params.page && this.props.sort !== params.sort_by) {
-        this.props.changePage(+params.page) && this.props.changeSort(params.sort_by);
-      } else if (this.props.year !== +params.year) {
-        this.props.changeYear(+params.year);
-      } else if (this.props.page !== +params.page) {
-        this.props.changePage(+params.page);
-      } else if (this.props.sort !== params.sort_by) {
-        this.props.changeSort(params.sort_by);
-      }
+      this.props.getMoves(params.sort_by, params.year, params.page);
     }
     window.scrollTo(0, 0);
   }

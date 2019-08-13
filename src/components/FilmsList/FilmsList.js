@@ -12,7 +12,6 @@ export class FilmsList extends Component {
           <li className="films-list-item" key={index}>
             <Link
               to={`/details/${item.id}`}
-              onClick={() => this.props.getId(item.id)}
               className="films-list-item-link"
             >
               <p className="desc">{item.title}</p>

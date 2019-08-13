@@ -1,20 +1,13 @@
 import { connect } from 'react-redux';
-import {
-  changeSort,
-  changeYear,
-} from '../actions/index';
+import { withRouter } from 'react-router-dom';
 import { FilmsNav } from '../components/FilmsNav/FilmsNav';
 
-const mapStateToProps = state => ({
-});
-const mapDispatchToProps = {
-  changeSort,
-  changeYear,
-};
+const mapStateToProps = state => ({});
+const mapDispatchToProps = {};
 
-export const FilmsNavContainer = connect(
+export const FilmsNavContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FilmsNav);
+)(FilmsNav));
 
 export default FilmsNavContainer;

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import queryString from 'query-string';
 import Select from 'react-select';
+import { addParam } from '../../utils/addParam';
 
 export class FilmsNav extends Component {
   state
 
   render() {
+    const params = queryString.parse(this.props.location.search);
     const options = [
       { value: 'release_date', label: 'Release date' },
       { value: 'popularity', label: 'Popularity' },
@@ -22,14 +25,14 @@ export class FilmsNav extends Component {
           <h3 className="sort-title">Sort by</h3>
           <Select
             className="films-sort-select"
-            onChange={(value) => { this.props.changeSort(value.value); }}
+            onChange={(sort) => { addParam(params, 'sort_by', sort.value, 'page', 1); }}
             options={options}
           />
         </div>
         <div className="films-sort">
           <h3 className="sort-title">Year</h3>
           <Select
-            onChange={(year) => { this.props.changeYear(year.value); }}
+            onChange={(year) => { addParam(params, 'year', year.value, 'page', 1); }}
             options={years}
           />
         </div>
