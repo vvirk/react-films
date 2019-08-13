@@ -23,7 +23,6 @@ export class Films extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <section className="films">
         <div className="content">
