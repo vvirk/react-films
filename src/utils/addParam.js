@@ -10,3 +10,13 @@ export function addParam(obj, key, value, ...other) {
 }
 
 export default addParam;
+
+/*
+export function addParam(obj, key, value, ...other) {
+  const params = obj;
+  params[key] = value;
+  params[other[0]] = [other[1]];
+  const str = `/?${queryString.stringify(params)}`;
+  return history.push(str);
+}
+*/

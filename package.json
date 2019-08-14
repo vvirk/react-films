@@ -1,8 +1,8 @@
 {
-  "name": "react-first",
+  "name": "react-films",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://boxing199.github.io/react-first",
+  "homepage": "https://vvirk.github.io/react-films",
   "dependencies": {
     "eslint-config-airbnb": "^17.1.0",
     "gh-pages": "^2.0.1",
