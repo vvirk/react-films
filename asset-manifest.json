@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-first/static/css/main.5bbe7666.chunk.css",
-    "main.js": "/react-first/static/js/main.521ad96f.chunk.js",
-    "main.js.map": "/react-first/static/js/main.521ad96f.chunk.js.map",
-    "runtime~main.js": "/react-first/static/js/runtime~main.ca757f83.js",
-    "runtime~main.js.map": "/react-first/static/js/runtime~main.ca757f83.js.map",
-    "static/css/2.8846ec2d.chunk.css": "/react-first/static/css/2.8846ec2d.chunk.css",
-    "static/js/2.80149887.chunk.js": "/react-first/static/js/2.80149887.chunk.js",
-    "static/js/2.80149887.chunk.js.map": "/react-first/static/js/2.80149887.chunk.js.map",
-    "index.html": "/react-first/index.html",
-    "precache-manifest.12bc08446f693326b015d962a6215b77.js": "/react-first/precache-manifest.12bc08446f693326b015d962a6215b77.js",
-    "service-worker.js": "/react-first/service-worker.js",
-    "static/css/2.8846ec2d.chunk.css.map": "/react-first/static/css/2.8846ec2d.chunk.css.map",
-    "static/css/main.5bbe7666.chunk.css.map": "/react-first/static/css/main.5bbe7666.chunk.css.map"
+    "main.css": "/react-films/static/css/main.5bbe7666.chunk.css",
+    "main.js": "/react-films/static/js/main.f09f0ec4.chunk.js",
+    "main.js.map": "/react-films/static/js/main.f09f0ec4.chunk.js.map",
+    "runtime~main.js": "/react-films/static/js/runtime~main.4f6e0200.js",
+    "runtime~main.js.map": "/react-films/static/js/runtime~main.4f6e0200.js.map",
+    "static/css/2.8846ec2d.chunk.css": "/react-films/static/css/2.8846ec2d.chunk.css",
+    "static/js/2.33d78d69.chunk.js": "/react-films/static/js/2.33d78d69.chunk.js",
+    "static/js/2.33d78d69.chunk.js.map": "/react-films/static/js/2.33d78d69.chunk.js.map",
+    "index.html": "/react-films/index.html",
+    "precache-manifest.6e7de2587a643f495a9f8e4040c18b8c.js": "/react-films/precache-manifest.6e7de2587a643f495a9f8e4040c18b8c.js",
+    "service-worker.js": "/react-films/service-worker.js",
+    "static/css/2.8846ec2d.chunk.css.map": "/react-films/static/css/2.8846ec2d.chunk.css.map",
+    "static/css/main.5bbe7666.chunk.css.map": "/react-films/static/css/main.5bbe7666.chunk.css.map"
   }
 }
