@@ -4,6 +4,7 @@ export const initialState = {
   items: [],
   totalPages: 1,
   details: {},
+  isFetching: false,
 };
 export const data = (state = initialState, action) => {
   switch (action.type) {
@@ -15,6 +16,8 @@ export const data = (state = initialState, action) => {
       };
     case type.ADD_DETAILS:
       return { ...state, details: action.details };
+    case type.TOGGLE_IS_FETSHING:
+      return { ...state, isFetching: action.isFetching };
     default:
       return state;
   }

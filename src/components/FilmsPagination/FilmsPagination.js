@@ -4,7 +4,7 @@ import { addParam } from '../../utils/addParam';
 
 export const FilmsPagination = (props) => {
   const params = queryString.parse(props.location.search);
-  const totalPages = props.totalPages;
+  const { totalPages } = props;
   const pages = [];
   const currentPage = (params.page) ? +params.page : 1;
   const separator = '...';
@@ -58,7 +58,8 @@ export const FilmsPagination = (props) => {
             <li className="pagination-item" key={index}>
               <button
                 type="button"
-                className={(currentPage === page) ? 'pagination-number pagination-number-active' : 'pagination-number'}
+                className={(currentPage === page)
+                  ? 'pagination-number pagination-number-active' : 'pagination-number'}
                 onClick={() => addParam(params, 'page', page)}
               >
                 {page}
