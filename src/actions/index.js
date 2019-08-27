@@ -18,9 +18,7 @@ export const getMoves = (sort = 'popularity', year = 2019, page = 1) => async (d
     const responseBody = await response.json();
     dispatch(addResult(responseBody));
     dispatch(toggleIsFetching(false));
-  } catch {
-    console.log('ERROR!');
-  }
+  } catch (e) { console.log(e); }
 };
 
 export const addDetails = details => ({
@@ -35,7 +33,5 @@ export const getDetails = id => async (dispatch) => {
     const responseBody = await response.json();
     dispatch(addDetails(responseBody));
     dispatch(toggleIsFetching(false));
-  } catch {
-    console.log('ERROR!');
-  }
+  } catch (e) { console.log(e); }
 };
