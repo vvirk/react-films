@@ -6,7 +6,9 @@ const mapStateToProps = state => ({
   totalPages: state.totalPages,
   page: state.page,
 });
+
 const mapDispatchToProps = {};
+
 export const FilmsPaginationContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,

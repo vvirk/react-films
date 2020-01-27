@@ -12,6 +12,7 @@ const mapStateToProps = state => ({
   page: state.page,
   isFetching: state.isFetching,
 });
+
 const mapDispatchToProps = {
   getMoves,
   toggleIsFetching,

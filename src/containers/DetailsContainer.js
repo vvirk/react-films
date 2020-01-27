@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
   details: state.details,
   isFetching: state.isFetching,
 });
+
 const mapDispatchToProps = {
   getDetails,
   toggleIsFetching,

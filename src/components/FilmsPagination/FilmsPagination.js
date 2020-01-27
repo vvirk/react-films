@@ -2,14 +2,14 @@ import React from 'react';
 import queryString from 'query-string';
 import { addParam } from '../../utils/addParam';
 
-export const FilmsPagination = (props) => {
-  const params = queryString.parse(props.location.search);
-  const { totalPages } = props;
+export const FilmsPagination = ({ totalPages, location }) => {
+  const params = queryString.parse(location.search);
   const pages = [];
-  const currentPage = (params.page) ? +params.page : 1;
+  const currentPage = params.page ? +params.page : 1;
   const separator = '...';
   const next = currentPage + 1;
   const prew = currentPage - 1;
+
   if (currentPage < 6) {
     for (let i = 1; i <= 7; i += 1) {
       pages.push(i);
@@ -37,6 +37,7 @@ export const FilmsPagination = (props) => {
       pages.push(i);
     }
   }
+
   return (
     <ul className="pagination">
       {(currentPage > 1)
@@ -51,7 +52,8 @@ export const FilmsPagination = (props) => {
               &#9668;
             </button>
           </li>
-        ) : null }
+        )
+        : null }
       {pages.map((page, index) => {
         if (page !== separator) {
           return (
@@ -59,7 +61,8 @@ export const FilmsPagination = (props) => {
               <button
                 type="button"
                 className={(currentPage === page)
-                  ? 'pagination-number pagination-number-active' : 'pagination-number'}
+                  ? 'pagination-number pagination-number-active'
+                  : 'pagination-number'}
                 onClick={() => addParam(params, 'page', page)}
               >
                 {page}
@@ -85,7 +88,8 @@ export const FilmsPagination = (props) => {
               &#9658;
             </button>
           </li>
-        ) : null }
+        )
+        : null }
     </ul>
   );
 };

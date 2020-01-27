@@ -17,9 +17,8 @@ export const FilmsNav = (props) => {
   for (let i = currentYear; i >= 1927; i -= 1) {
     years.push({ value: i, label: i });
   }
-  const selectedYear = years.filter(year => (
-    year.value === +params.year
-  ));
+  const selectedYear = years.filter(year => year.value === +params.year);
+
   return (
     <nav className="films-navigation">
       <div className="films-sort">
